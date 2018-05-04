@@ -46,8 +46,8 @@
             FB.api('/me','POST',
   {"fields":"id,name,email,birthday,hometown,friends,location,photos,posts,tagged_places,likes"}, function(response) {
 		document.getElementById('nowy').innerHTML = 'Witaj: ' + response.name +' '+ response.id +' '+ response.email 
-		+' '+ response.birthday +' '+ response.hometown +' '+ response.friends +' '+ response.location +' '+ response.photos 
-		+' '+ response.posts +' '+ response.tagged_places +' '+ response.likes +' '+ response.gender;
+		+' '+ user_response.birthday +' '+ user_response.hometown +' '+ user_response.friends +' '+ response.user_location +' '+ response.user_photos 
+		+' '+ user_response.posts +' '+ response.user_tagged_places +' '+ response.user_likes +' '+ response.user_gender;
 	});
 }
 </script>
