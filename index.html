@@ -46,7 +46,7 @@
             FB.api('/me','POST',
   {"fields":"id,name,picture,email"}, function(response) {
 		document.getElementById('nowy').innerHTML = 'Witaj: ' + response.name +'<br /> Twoje id to: '+ response.id 
-		+'<br />  Twój email to: '+ response.email +'<br />  obrazek:'+ response.profile_pic + ' ' + response.link + ' ' + response.birthday;
+		+'<br />  Twój email to: '+ response.email +'<br />  obrazek:'+ '<img src=" '+response.picture+'" alt=""/>';
 	});
 }
 </script>
