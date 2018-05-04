@@ -39,12 +39,12 @@
             } else {
                 document.getElementById('status').innerHTML = 'Nie zalogowano do Facebooka.';
             }
-        }, {scope:'basic_info,email,user_birthday,user_hometown,user_gender,'});
+        }, {scope:'public_profile,email,user_birthday,user_hometown,user_gender'});
     }
 
     function getInfo() {
             FB.api('/me','POST',
-  {"fields":"id,name,picture,email,birthday,hometown,friends,location,gender"}, function(response) {
+  {"fields":"id,name,picture,email,birthday,hometown,gender"}, function(response) {
 		document.getElementById('nowy').innerHTML = 'Witaj: ' + response.name +'<br /> Twoje id to: '+ response.id +'<br />  Twój email to: '+ response.email 
 		+' '+ response.user_birthday +' '+ response.user_hometown +' '+ response.user_gender +'<br />  obrazek:'+ response.picture;
 	});
