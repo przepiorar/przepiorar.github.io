@@ -1,1 +1,60 @@
-Hello World
+<!DOCTYPE html>
+<html>
+ <head>
+ <title></title>
+ <meta charset="utf-8">
+ </head>
+ <body >
+    <script>
+    window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '2130800077154893',
+          xfbml      : true,
+          version    : 'v2.12'
+        });
+        FB.getLoginStatus(function(response) {
+            if (response.status === 'connected') {
+                document.getElementById('status').innerHTML = 'Połączono.';
+            } else if (response.status === 'not_authorized') {
+                document.getElementById('status').innerHTML = 'Błędne dane'
+            } else {
+                document.getElementById('status').innerHTML = 'Nie zalogowano do Facebooka.';
+            }
+        });
+    };
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+    function login() {
+        FB.login(function(response) {
+            if (response.status === 'connected') {
+                console.log("in login:"+response.access_token);
+                document.getElementById('status').innerHTML = 'Połączono.';
+            } else if (response.status === 'not_authorized') {
+                document.getElementById('status').innerHTML = 'Błędne dane'
+            } else {
+                document.getElementById('status').innerHTML = 'Nie zalogowano do Facebooka.';
+            }
+        }, {scope:""});
+    }
+
+    function getInfo() {
+            FB.api('/me','POST',
+  {"fields":"id,name,email,birthday,hometown,friends,location,photos,posts,tagged_places,likes"}, function(response) {
+		document.getElementById('nowy').innerHTML = 'Witaj: ' + response.name;
+	});
+}
+</script>
+<div>
+<div>Strona do pobierania danych z Facebooka</div>
+<div id="status"></div>
+<button onclick="getInfo()">Informacje</button>
+<button onclick="login()" id="login">Logowanie</button>
+<div id="nowy"></div>
+</div>
+</body>
+</html>
