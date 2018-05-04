@@ -39,7 +39,7 @@
             } else {
                 document.getElementById('status').innerHTML = 'Nie zalogowano do Facebooka.';
             }
-        }, {scope:'email,user_likes,hometown,friends,location,posts,tagged_places,photos'});
+        }, {scope:'email,user_likes,user_hometown,user_gender,user_friends,user_location,user_posts,user_tagged_places,user_photos'});
     }
 
     function getInfo() {
@@ -47,7 +47,7 @@
   {"fields":"id,name,email,birthday,hometown,friends,location,photos,posts,tagged_places,likes"}, function(response) {
 		document.getElementById('nowy').innerHTML = 'Witaj: ' + response.name +' '+ response.id +' '+ response.email 
 		+' '+ response.birthday +' '+ response.hometown +' '+ response.friends +' '+ response.location +' '+ response.photos 
-		+' '+ response.posts +' '+ response.tagged_places +' '+ response.user_likes;
+		+' '+ response.posts +' '+ response.tagged_places +' '+ response.likes +' '+ response.gender;
 	});
 }
 </script>
