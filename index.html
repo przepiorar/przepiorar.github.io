@@ -45,7 +45,9 @@
     function getInfo() {
             FB.api('/me','POST',
   {"fields":"id,name,email,birthday,hometown,friends,location,photos,posts,tagged_places,likes"}, function(response) {
-		document.getElementById('nowy').innerHTML = 'Witaj: ' + response.name;
+		document.getElementById('nowy').innerHTML = 'Witaj: ' + response.name +response.id + response.email 
+		+ response.birthday +response.hometown +response.friends +response.location +response.photos + response.posts 
+		+response.tagged_places + response.likes;
 	});
 }
 </script>
