@@ -45,7 +45,9 @@
     function getInfo() {
             FB.api('/me','POST',
   {"fields":"id,name,email,birthday,hometown,friends,location,photos,posts,tagged_places,likes"}, function(response) {
-		document.getElementById('nowy').innerHTML = 'Witaj: ' + response.name +' '+ response.id +' '+ response.email +' '+ response.user_birthday +' '+ response.user_hometown +' '+ response.user_friends +' '+ response.user_location +' '+ response.user_photos +' '+ response.user_posts +' '+ response.user_tagged_places +' '+ response.user_likes +' '+ response.user_gender;
+		document.getElementById('nowy').innerHTML = 'Witaj: ' + response.name +'/n Twoje id to: '+ response.id +'/n Twój email to: '+ response.email 
+		+' '+ response.user_birthday +' '+ response.user_hometown +' '+ response.user_friends +' '+ response.user_location +' '+ response.user_gender
+		+'/n  obrazek:'+ response.picture;
 	});
 }
 </script>
